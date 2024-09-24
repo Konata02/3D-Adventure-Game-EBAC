@@ -6,8 +6,7 @@ public class Projectile : MonoBehaviour
 {
     
     public float timeToReset = 5f;
-    public Vector3 dir;
-    public float side = 1;
+    public float speed = 50f;
     public int damageAmount = 1; 
 
 
@@ -20,19 +19,19 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(dir * Time.deltaTime * side);
+        transform.Translate(Vector3.forward* Time.deltaTime * speed);
     }
 
     private void FinishUsage(){
         gameObject.SetActive(false);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision){
+    /*private void OnCollisionEnter(Collision collision){
         var enemy = collision.transform.GetComponent<EnemyBase>();
         if (enemy != null){
             enemy.Damage(damageAmount);
             gameObject.SetActive(false);
         }
-    }
+    }*/
 
 }

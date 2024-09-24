@@ -43,11 +43,11 @@ public class PlayerController : Singleton<PlayerController>
 
         transform.Translate(transform.forward * _currentSpeed * Time.deltaTime );
         
-        if (Input.GetMouseButton(0)){
+       /* if (Input.GetMouseButton(0)){
             Move(Input.mousePosition.x - pastPosition.x);
-        }
+        }*/
 
-        pastPosition = Input.mousePosition;
+       // pastPosition = Input.mousePosition;
 
     }
 
