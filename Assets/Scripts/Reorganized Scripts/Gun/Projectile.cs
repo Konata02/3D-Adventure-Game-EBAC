@@ -26,12 +26,13 @@ public class Projectile : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    /*private void OnCollisionEnter(Collision collision){
+    private void OnCollisionEnter(Collision collision){
         var enemy = collision.transform.GetComponent<EnemyBase>();
         if (enemy != null){
             enemy.Damage(damageAmount);
             gameObject.SetActive(false);
         }
-    }*/
+        Debug.Log("Projectile");
+    }
 
 }

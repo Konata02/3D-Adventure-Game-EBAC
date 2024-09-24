@@ -18,7 +18,6 @@ public class PlayerAbilityShoot : PlayerAbilityBase
 
 
     private void StartShoot(){
-        Debug.Log("Atirou");
         shootController.StartShoot();
     }
 

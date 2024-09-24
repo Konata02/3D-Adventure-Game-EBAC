@@ -131,9 +131,6 @@ PrefabInstance:
       addedObject: {fileID: 7193805671317595757}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8d575dd232d52cb4ea231be2a029a8ce, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8400292199895260173}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8d575dd232d52cb4ea231be2a029a8ce, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 3044221686110784391}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8d575dd232d52cb4ea231be2a029a8ce, type: 3}
       insertIndex: -1
@@ -170,24 +167,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8400292199895260173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5531986718136724959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3533852190b757b44951b43b335e7bf3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterController: {fileID: 0}
-  speed: 25
-  turnSpeed: 300
-  gravity: 9.8
-  animator: {fileID: 7193805671317595757}
-  jumpSpeed: 15
 --- !u!143 &3044221686110784391
 CharacterController:
   m_ObjectHideFlags: 0
@@ -229,4 +208,6 @@ MonoBehaviour:
   poolManager: {fileID: 0}
   positionToShoot: {fileID: 5907035604085688943}
   timeBetweenShoot: 0.2
-  keyCode: 122
+  timeBetweenShootMinus: 0.1
+  change: 0
+  shootsPerClick: 3

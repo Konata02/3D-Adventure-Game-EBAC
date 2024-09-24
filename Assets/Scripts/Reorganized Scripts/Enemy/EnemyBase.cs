@@ -5,18 +5,19 @@ using UnityEngine;
 public class EnemyBase : MonoBehaviour
 {
     public int damage = 10;
-    public Animator ANIM_Enemy;
+    //public Animator ANIM_Enemy;
     public HealthBase healthBase; 
 
-    private void OnCollisionEnter2D(Collision2D collision){
+    private void OnCollisionEnter(Collision collision){
 
         //Debug.Log(collision.transform.name);
         var health = collision.gameObject.GetComponent<HealthBase>();
 
         if (health != null){
             health.Damage(damage);
-            ANIM_Enemy.SetTrigger("atackEnemy");
+          // ANIM_Enemy.SetTrigger("atackEnemy");
         }
+        Debug.Log("acertou");
     }
 
 

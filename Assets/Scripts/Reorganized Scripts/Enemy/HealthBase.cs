@@ -6,12 +6,13 @@ public class HealthBase : MonoBehaviour
 {
     
     public int startLife = 10;
-    private int _currentLife;
+    public int _currentLife;
     public bool destroyOnKill = false;
     private bool _isDead = false;
     public Animator ANIM_Player;
     public string ani_death = "death";
     public float delayToKill = 0f;
+    public ParticleSystem particles;
     //public Action OnKill;
     
     private void Awake(){
@@ -48,6 +49,7 @@ public class HealthBase : MonoBehaviour
 
         if(destroyOnKill){
         ANIM_Player.SetTrigger(ani_death);
+        particles.Play();
          Destroy(gameObject,delayToKill);
         }
         //OnKill.Invoke();
