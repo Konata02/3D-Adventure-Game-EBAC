@@ -18,15 +18,15 @@ public class PlayerAbilityShoot : PlayerAbilityBase
 
 
     private void StartShoot(){
-        shootController.StartShoot();
+        shootController.StartShooting();
     }
 
     private void CancelShoot(){
-        shootController.StopShoot();
+        //shootController.StopShoot();
     }
 
     private void ChangeFireType(){
-        shootController.ChangeFireType();
+        shootController.NextGun();
     }
     
 

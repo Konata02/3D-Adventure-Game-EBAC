@@ -17,7 +17,7 @@ public class EnemyBase : MonoBehaviour
             health.Damage(damage);
           // ANIM_Enemy.SetTrigger("atackEnemy");
         }
-        Debug.Log("acertou");
+        
     }
 
 
