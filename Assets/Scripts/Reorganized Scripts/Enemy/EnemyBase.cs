@@ -12,13 +12,19 @@ public class EnemyBase : MonoBehaviour
 
         //Debug.Log(collision.transform.name);
         var health = collision.gameObject.GetComponent<HealthBase>();
+        Player p = collision.transform.GetComponent<Player>();
 
         if (health != null){
             health.Damage(damage);
           // ANIM_Enemy.SetTrigger("atackEnemy");
         }
+
+        if(p != null){
+
+        }
         
     }
+
 
 
     public void Damage(int amount){

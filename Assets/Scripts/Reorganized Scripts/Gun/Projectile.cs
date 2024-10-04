@@ -9,6 +9,7 @@ public class Projectile : MonoBehaviour
     public float speed = 50f;
     public int damageAmount = 1; 
 
+    public List<string> tagsToHit;
 
     // Start is called before the first frame update
      public void StartProjectile()
@@ -27,12 +28,25 @@ public class Projectile : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision collision){
-        var enemy = collision.transform.GetComponent<EnemyBase>();
-        if (enemy != null){
-            enemy.Damage(damageAmount);
-            gameObject.SetActive(false);
+
+
+        foreach(var tag in tagsToHit){
+
+            if ( collision.transform.tag == tag) {
+
+                var enemy = collision.transform.GetComponent<EnemyBase>();
+                if (enemy != null){
+                    enemy.Damage(damageAmount);
+                    gameObject.SetActive(false);
+                }
+                Debug.Log("Projectile");
+
+                break;
+            }
+
+
         }
-        Debug.Log("Projectile");
+
     }
 
 }
