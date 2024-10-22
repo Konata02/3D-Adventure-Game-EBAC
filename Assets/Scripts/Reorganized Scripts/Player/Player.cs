@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
       private float vSpeed = 0f;    
       public Animator animator; 
       public float jumpSpeed = 15f;
+      public int damage = 10;
+      public HealthBase healthBase; 
 
       void Update()    
         {        
@@ -40,9 +42,7 @@ public class Player : MonoBehaviour
 
         }
 
-        
-          
-            
 
+      
 
 }

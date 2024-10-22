@@ -11,8 +11,17 @@ public class HealthBase : MonoBehaviour
     private bool _isDead = false;
     public Animator ANIM_Player;
     public string ani_death = "death";
+    public string ani_revive = "Revive";
+
     public float delayToKill = 0f;
     public ParticleSystem particles;
+    public List<UIUdapter> uiHpBar;
+
+    public CharacterController characterController;
+    
+
+    
+
     //public Action OnKill;
     
     private void Awake(){
@@ -24,7 +33,24 @@ public class HealthBase : MonoBehaviour
 
     }
 
-    private void OnEnemyKill(){
+
+
+    private void PlayerDeath(){
+        if (CompareTag("Player")){
+           if( _isDead == true) {
+                
+                if (characterController != null) {
+                    characterController.enabled = false;
+                }
+                
+                StartCoroutine(HandleRespawn());
+                _currentLife = startLife;
+                _isDead = false;
+
+           }
+        
+        }
+
 
     }
 
@@ -38,6 +64,7 @@ public class HealthBase : MonoBehaviour
         if (_isDead) return;
 
         _currentLife -= damage;
+        UpdateUI();
 
         if(_currentLife <=0){
             Kill();
@@ -47,13 +74,48 @@ public class HealthBase : MonoBehaviour
     private void Kill(){
         _isDead = true;
 
-        if(destroyOnKill){
         ANIM_Player.SetTrigger(ani_death);
-        particles.Play();
+        PlayerDeath();
+        if(destroyOnKill){
+            if(particles != null )particles.Play();
          Destroy(gameObject,delayToKill);
         }
-        //OnKill.Invoke();
     
     }
+
+    private void UpdateUI()
+    {
+        if (uiHpBar != null)
+        {
+            uiHpBar.ForEach(i => i.UpdateValue((float)_currentLife/startLife));
+        }
+    }
+
+
+    private IEnumerator HandleRespawn() {
+        
+        yield return new WaitForSeconds(delayToKill); // Ajuste se necessário
+        ANIM_Player.SetTrigger(ani_revive);
+        PlayerDeath(); // Agora chamamos a função de morte
+        Respawn();
+    }
+
+    [NaughtyAttributes.Button]
+    public void Respawn()
+        {
+            if (CheckpointManager.Instance.HasCheckpoint()) {
+                Vector3 checkpointPosition = CheckpointManager.Instance.GetPositionFromLastCheckpoint();
+                Debug.Log($"Respawning at checkpoint position: {checkpointPosition}");
+                if (transform.position != checkpointPosition) transform.position = checkpointPosition;
+
+                if (characterController != null) {
+                    characterController.enabled = true;
+                }
+
+            } 
+            else {
+                Debug.Log("No checkpoint available for respawn.");
+            }
+        }
 
 }

@@ -27,7 +27,7 @@ namespace Boss {
             {
                 base.OnStateEnter(objs);
                 boss.StartInitAnimation();
-                Debug.Log("Boss" + boss);
+                
             }
         }
 
@@ -37,7 +37,7 @@ namespace Boss {
             {
                 base.OnStateEnter(objs);
                 boss.GoToRandomPoint();
-                Debug.Log("Boss" + boss);
+                
             }
         }
 
@@ -47,7 +47,7 @@ namespace Boss {
             {
                 base.OnStateEnter(objs);
                 boss.Shoot();
-                Debug.Log("Boss" + boss);
+               
             }
         }
 

@@ -39,7 +39,7 @@ public class Projectile : MonoBehaviour
                     enemy.Damage(damageAmount);
                     gameObject.SetActive(false);
                 }
-                Debug.Log("Projectile");
+                
 
                 break;
             }
