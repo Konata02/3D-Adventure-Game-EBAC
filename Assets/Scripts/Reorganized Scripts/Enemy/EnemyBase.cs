@@ -16,6 +16,7 @@ public class EnemyBase : MonoBehaviour
 
         if (health != null){
             health.Damage(damage);
+            Shaker.Instance.Shake();
           // ANIM_Enemy.SetTrigger("atackEnemy");
         }
 

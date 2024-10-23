@@ -38,6 +38,12 @@ public class Projectile : MonoBehaviour
                 if (enemy != null){
                     enemy.Damage(damageAmount);
                     gameObject.SetActive(false);
+                    if (tag == "Player") 
+                    {
+                        Shaker.Instance.Shake();
+                        EffectManager.Instance.ChangeColor();
+
+                    }    
                 }
                 
 
