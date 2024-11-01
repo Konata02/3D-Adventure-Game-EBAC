@@ -138,6 +138,9 @@ PrefabInstance:
       addedObject: {fileID: 3044221686110784391}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8d575dd232d52cb4ea231be2a029a8ce, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 7761583179573092277}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8d575dd232d52cb4ea231be2a029a8ce, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 5016465759525235961}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8d575dd232d52cb4ea231be2a029a8ce, type: 3}
       insertIndex: -1
@@ -145,6 +148,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8d575dd232d52cb4ea231be2a029a8ce, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6750270728091882199}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8d575dd232d52cb4ea231be2a029a8ce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5431641966685555559}
   m_SourcePrefab: {fileID: 100100000, guid: 8d575dd232d52cb4ea231be2a029a8ce, type: 3}
 --- !u!4 &5156129202013452133 stripped
 Transform:
@@ -203,6 +209,26 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 1.5, z: 0}
+--- !u!114 &7761583179573092277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5531986718136724959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f556dd8fdd7fe7f42bc71dd1f2f801ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterController: {fileID: 3044221686110784391}
+  speed: 50
+  turnSpeed: 250
+  gravity: 9.8
+  animator: {fileID: 7193805671317595757}
+  jumpSpeed: 15
+  damage: 10
+  healthBase: {fileID: 7221135689257319934}
 --- !u!114 &5016465759525235961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,6 +265,7 @@ MonoBehaviour:
   uiHpBar:
   - {fileID: 0}
   - {fileID: 0}
+  characterController: {fileID: 0}
 --- !u!114 &6750270728091882199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,5 +278,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb75b88e92dca8c43a8ca362f6515d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 7761583179573092277}
   shootController: {fileID: 5016465759525235961}
+--- !u!114 &5431641966685555559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5531986718136724959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdced34859af6874cb94f3b8229f26fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  healthBase: {fileID: 7221135689257319934}

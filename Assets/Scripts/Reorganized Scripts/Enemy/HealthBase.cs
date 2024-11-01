@@ -26,11 +26,6 @@ public class HealthBase : MonoBehaviour
     
     private void Awake(){
         Init();
-
-       /* if(healthBase != null){
-            healthBase.OnKill += OnEnemyKill();
-        }*/
-
     }
 
 
@@ -71,6 +66,12 @@ public class HealthBase : MonoBehaviour
         }
     }
 
+
+    public void Recover(){
+        _currentLife = startLife;
+    }
+
+
     private void Kill(){
         _isDead = true;
 
@@ -83,7 +84,7 @@ public class HealthBase : MonoBehaviour
     
     }
 
-    private void UpdateUI()
+    public void UpdateUI()
     {
         if (uiHpBar != null)
         {

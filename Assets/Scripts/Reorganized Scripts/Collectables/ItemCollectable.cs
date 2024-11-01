@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Itens;
 
 public class ItemCollectable: CollectBase
 {
@@ -11,7 +12,7 @@ public class ItemCollectable: CollectBase
         
         if (CoinsManager.Instance != null)
         {
-            CoinsManager.Instance.AddCoins(value.value);
+            CoinsManager.Instance.AddByTyoe(ItemType.COIN);
         }
         else
         {
