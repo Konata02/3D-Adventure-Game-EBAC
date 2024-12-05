@@ -124,6 +124,7 @@ MonoBehaviour:
   damageAmount: 1
   tagsToHit:
   - Player
+  - Tree
 --- !u!54 &6637157419765327184
 Rigidbody:
   m_ObjectHideFlags: 0

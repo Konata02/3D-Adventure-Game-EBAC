@@ -29,11 +29,9 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision){
 
-
         foreach(var tag in tagsToHit){
 
             if ( collision.transform.tag == tag) {
-
                 var enemy = collision.transform.GetComponent<EnemyBase>();
                 if (enemy != null){
                     enemy.Damage(damageAmount);

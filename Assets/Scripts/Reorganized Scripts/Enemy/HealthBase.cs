@@ -54,8 +54,9 @@ public class HealthBase : MonoBehaviour
         _currentLife = startLife;
     }
 
-    public void Damage(int damage){
+    public virtual void Damage(int damage){
         
+        Debug.Log("Entrou");
         if (_isDead) return;
 
         _currentLife -= damage;
@@ -75,7 +76,7 @@ public class HealthBase : MonoBehaviour
     private void Kill(){
         _isDead = true;
 
-        ANIM_Player.SetTrigger(ani_death);
+        if(ANIM_Player != null) ANIM_Player.SetTrigger(ani_death);
         PlayerDeath();
         if(destroyOnKill){
             if(particles != null )particles.Play();
@@ -96,7 +97,7 @@ public class HealthBase : MonoBehaviour
     private IEnumerator HandleRespawn() {
         
         yield return new WaitForSeconds(delayToKill); // Ajuste se necessário
-        ANIM_Player.SetTrigger(ani_revive);
+        if(ANIM_Player != null) ANIM_Player.SetTrigger(ani_revive);
         PlayerDeath(); // Agora chamamos a função de morte
         Respawn();
     }
