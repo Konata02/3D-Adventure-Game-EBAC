@@ -120,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToReset: 5
   speed: 50
-  damageAmount: 1
+  damageAmount: {fileID: 11400000, guid: 5b285e8fa38169240868585298d2c82d, type: 2}
   tagsToHit:
   - Enemy
   - Tree

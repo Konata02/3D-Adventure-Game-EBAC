@@ -121,7 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToReset: 5
   speed: 50
-  damageAmount: 1
+  damageAmount: {fileID: 11400000, guid: f2ae68582ee1fd846b35f26a03b42b8a, type: 2}
   tagsToHit:
   - Player
   - Tree

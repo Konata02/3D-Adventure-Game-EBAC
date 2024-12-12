@@ -7,7 +7,8 @@ public class Projectile : MonoBehaviour
     
     public float timeToReset = 5f;
     public float speed = 50f;
-    public int damageAmount = 1; 
+    public SOInt damageAmount;
+    
 
     public List<string> tagsToHit;
 
@@ -34,7 +35,7 @@ public class Projectile : MonoBehaviour
             if ( collision.transform.tag == tag) {
                 var enemy = collision.transform.GetComponent<EnemyBase>();
                 if (enemy != null){
-                    enemy.Damage(damageAmount);
+                    enemy.Damage(damageAmount.value);
                     gameObject.SetActive(false);
                     if (tag == "Player") 
                     {
