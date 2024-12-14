@@ -14,10 +14,12 @@ public class Player : MonoBehaviour
       public float jumpSpeed = 15f;
       public int damage = 10;
       public HealthBase healthBase; 
+      public ParticleSystem particleSystem;
 
       void Update()    
         {        
             
+
             transform.Rotate(0, Input.GetAxis("Horizontal") * turnSpeed * Time.deltaTime, 0);        
             var inputAxisVertical = Input.GetAxis("Vertical");        
             var speedVector = transform.forward * inputAxisVertical * speed;        
@@ -40,6 +42,24 @@ public class Player : MonoBehaviour
 
 
 
+              if (particleSystem != null)
+            {
+                // A partícula é ativada somente quando o jogador está pressionando "W" e se movendo para frente
+                if (Input.GetKey(KeyCode.W) && inputAxisVertical > 0)
+                {
+                    if (!particleSystem.isPlaying)  // Verifica se a partícula já está tocando
+                    {
+                        particleSystem.Play();
+                    }
+                }
+                else
+                {
+                    if (particleSystem.isPlaying)  // Se não estiver se movendo para frente, pare a partícula
+                    {
+                        particleSystem.Stop();
+                    }
+                }
+            }
         }
 
 
