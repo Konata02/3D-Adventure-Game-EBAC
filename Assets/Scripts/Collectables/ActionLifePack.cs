@@ -10,7 +10,7 @@ public class ActionLifePack : MonoBehaviour
     public HealthBase healthBase;
     public KeyCode keyCode = KeyCode.L;
     public TextMeshProUGUI uiTextLife;
-   
+
     private void Start()
     {
         soInt = CoinsManager.Instance.GetByTyoe(ItemType.LIFE_PACK).soInt;
@@ -25,21 +25,21 @@ public class ActionLifePack : MonoBehaviour
 
     private void Update()
     {
-        if(soInt.value > 0)
+        if (soInt.value > 0)
         {
             if (Input.GetKeyDown(keyCode))
             {
                 RecoverLife();
-                
+
             }
 
         }
 
-        if ( healthBase._currentLife < (float)(healthBase.startLife / 2) )
+        if (healthBase._currentLife < (float)(healthBase.startLife / 2))
         {
-            uiTextLife.gameObject.SetActive(true); 
+            uiTextLife.gameObject.SetActive(true);
         }
-        else uiTextLife.gameObject.SetActive(false); 
+        else uiTextLife.gameObject.SetActive(false);
 
 
     }

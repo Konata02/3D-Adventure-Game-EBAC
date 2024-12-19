@@ -8,8 +8,8 @@ public class ClothItemSpeed : ClothItemBase
 {
 
     public Player playerSpeed;
-    private float defaultSpeed;
-    public float speedUp;
+    //private float defaultSpeed;
+
 
 
     public override void Collect()
@@ -20,10 +20,12 @@ public class ClothItemSpeed : ClothItemBase
 
     public void ChangeSpeed()
     {
-        StartCoroutine(ChangeSpeedCoroutine(speedUp, duration));
+        clothSetup.ChangePlayerSpeed(playerSpeed);
+        //defaultSpeed = playerSpeed.speed;
+        //StartCoroutine(ChangeSpeedCoroutine(speedUp, duration));
     }
 
-    IEnumerator ChangeSpeedCoroutine(float speed, float duration)
+    /*IEnumerator ChangeSpeedCoroutine(float speed, float duration)
     {
         defaultSpeed = playerSpeed.speed;
         playerSpeed.speed = speed;
@@ -32,7 +34,7 @@ public class ClothItemSpeed : ClothItemBase
         materialChanger.ChangeMaterials(materialChanger.materialsToChange[0]);
 
 
-    } 
+    }*/
 
 }
 

@@ -8,18 +8,22 @@ public class ClothItemBase : MonoBehaviour
     public ClothChangerV2 materialChanger;
     public float duration;
     private float durationPlus;
-
-
+    protected ClothSetup clothSetup;
     public string compareTag = "Player";
-        private void OnTriggerEnter(Collider collision)
+
+    private void OnTriggerEnter(Collider collision)
     {
-        Collect();
+        if (collision.CompareTag(compareTag))
+        {
+            Collect();
+        }
     }
 
     public virtual void Collect()
-    {   
-        var setup = ClothManager.Instance.GetSetupByType(clothType);
-        materialChanger.ChangeMaterials(setup.material);
+    {
+        clothSetup = ClothManager.Instance.GetSetupByType(clothType);
+        ClothManager.Instance._currentEquippedCloth = clothSetup.id;
+        materialChanger.ChangeMaterials(clothSetup.material);
         durationPlus = duration + 0.5f;
         HideObject();
     }
@@ -28,15 +32,10 @@ public class ClothItemBase : MonoBehaviour
     {
         GetComponent<Renderer>().enabled = false;
         Invoke("DeactivateGameObject", durationPlus);
-
-        
     }
 
     void DeactivateGameObject()
     {
         Destroy(gameObject);
     }
-
-
-
 }

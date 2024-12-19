@@ -1,0 +1,9 @@
+{
+    "lastlevel": 1,
+    "playerName": "-",
+    "coins": 0,
+    "lifepack": 0,
+    "lastCheckpointKey": 1,
+    "_currentLife": 10,
+    "id_cloth": 0
+}

@@ -5,14 +5,10 @@ using UnityEngine;
 public class ClothItemForce : ClothItemBase
 {
 
-    public Player playerForce;
-    private float defaultJumpSpeed;
-    private int  defaultDamage ;
-    public float speedJumpUp;
-    
-    public SOInt bulletsdamage;
 
-    public int damageUp;
+    //private int  defaultDamage;
+
+    public SOInt bulletsdamage;
 
 
     public override void Collect()
@@ -23,10 +19,12 @@ public class ClothItemForce : ClothItemBase
 
     public void ChangeForce()
     {
-        StartCoroutine(ChangeForceCoroutine(speedJumpUp, duration));
+        clothSetup.ChangePlayerDamageBullets(bulletsdamage);
+        //defaultDamage = bulletsdamage.value;
+        //StartCoroutine(ChangeForceCoroutine(speedJumpUp, duration));
     }
 
-    IEnumerator ChangeForceCoroutine(float speed, float duration)
+    /*IEnumerator ChangeForceCoroutine(float speed, float duration)
     {
         defaultJumpSpeed = playerForce.jumpSpeed;
         defaultDamage = bulletsdamage.value;
@@ -38,6 +36,6 @@ public class ClothItemForce : ClothItemBase
         materialChanger.ChangeMaterials(materialChanger.materialsToChange[0]);
 
 
-    } 
+    } */
 
 }

@@ -29,9 +29,17 @@ public class CoinsManager : Ebac.Singleton.Singleton<CoinsManager>
     protected override void Awake(){
         base.Awake();
         Reset();
+        LoadItensFromSave();
+
         
     }
     
+    private void LoadItensFromSave()
+    {
+        AddByTyoe(ItemType.COIN, SaveManager.Instance.setup.coins);
+        AddByTyoe(ItemType.LIFE_PACK, SaveManager.Instance.setup.lifepack);
+    }
+
     private void Reset()
         {
             coins.value = 0;

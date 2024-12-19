@@ -16,10 +16,16 @@ public class Player : MonoBehaviour
       public HealthBase healthBase; 
       public ParticleSystem particleSystem;
 
+      
+      private void Start()
+      {
+        transform.position = CheckpointManager.Instance.LoadCheckpointFromSave();
+        ClothManager.Instance.InitCloth();
+      }
+      
       void Update()    
         {        
             
-
             transform.Rotate(0, Input.GetAxis("Horizontal") * turnSpeed * Time.deltaTime, 0);        
             var inputAxisVertical = Input.GetAxis("Vertical");        
             var speedVector = transform.forward * inputAxisVertical * speed;        
@@ -61,6 +67,7 @@ public class Player : MonoBehaviour
                 }
             }
         }
+
 
 
       

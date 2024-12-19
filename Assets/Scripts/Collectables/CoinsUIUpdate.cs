@@ -5,18 +5,18 @@ using UnityEngine;
 using TMPro;
 public class CoinsUIUpdate : MonoBehaviour
 {
-   public SOInt scriptableObject;
-   public TextMeshProUGUI textCoinsCounter;
+    public SOInt scriptableObject;
+    public TextMeshProUGUI textCoinsCounter;
 
-   private void Update()
+    private void Update()
     {
-        
+
         if (textCoinsCounter != null)
         {
-            
-            textCoinsCounter.text = "X" + " " +  scriptableObject.value.ToString();
-            
-            
+
+            textCoinsCounter.text = "X" + " " + scriptableObject.value.ToString();
+
+
         }
         else
         {

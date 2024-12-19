@@ -41,6 +41,7 @@ public class HealthBase : MonoBehaviour
                 StartCoroutine(HandleRespawn());
                 _currentLife = startLife;
                 _isDead = false;
+                UpdateUI();
 
            }
         
@@ -51,16 +52,20 @@ public class HealthBase : MonoBehaviour
 
     private void Init(){
         _isDead = false;
-        _currentLife = startLife;
+        if ( SaveManager.Instance.setup._currentLife == startLife) _currentLife = startLife;
+        else {_currentLife = SaveManager.Instance.setup._currentLife; UpdateUI();}
+        
     }
 
     public virtual void Damage(int damage){
         
-        Debug.Log("Entrou");
+       
         if (_isDead) return;
 
         _currentLife -= damage;
+        if (CompareTag("Player")) SaveManager.Instance.setup._currentLife = _currentLife;
         UpdateUI();
+
 
         if(_currentLife <=0){
             Kill();
@@ -105,6 +110,7 @@ public class HealthBase : MonoBehaviour
     [NaughtyAttributes.Button]
     public void Respawn()
         {
+            Debug.Log("valasPuto");
             if (CheckpointManager.Instance.HasCheckpoint()) {
                 Vector3 checkpointPosition = CheckpointManager.Instance.GetPositionFromLastCheckpoint();
                 Debug.Log($"Respawning at checkpoint position: {checkpointPosition}");
