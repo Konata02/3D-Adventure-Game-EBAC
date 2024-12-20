@@ -2,11 +2,51 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Ebac.Singleton;
+using UnityEngine.Audio;
 public class AudioManager : Singleton<AudioManager>
 {
     public List<MusicSetup> musicSetups;
     public List<SFX_Setup> sfxSetups;
+    public AudioMixer audioMixer;
 
+    private float originalMasterVolume = 0f;
+    private bool isMuted = false;
+
+
+    private void Start()
+    {
+
+        audioMixer.GetFloat("Master", out originalMasterVolume);
+    }
+
+
+    private void Update()
+    {
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            ToggleMasterVolume();
+        }
+    }
+
+
+    private void ToggleMasterVolume()
+    {
+        if (isMuted)
+        {
+
+            audioMixer.SetFloat("Master", originalMasterVolume);
+            isMuted = false;
+            Debug.Log("Volume desmutado.");
+        }
+        else
+        {
+
+            audioMixer.SetFloat("Master", -80f);
+            isMuted = true;
+            Debug.Log("Volume mutado.");
+        }
+    }
 
     public void MusicPlayByType(MusicType musicType, AudioSource musicSource)
     {
