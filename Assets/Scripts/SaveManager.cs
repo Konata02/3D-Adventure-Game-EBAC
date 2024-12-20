@@ -36,7 +36,6 @@ public class SaveManager : Singleton<SaveManager>
     {
 
         string setupToJason = JsonUtility.ToJson(_saveSetup, true);
-        Debug.Log(setupToJason);
         SaveFile(setupToJason);
     }
 

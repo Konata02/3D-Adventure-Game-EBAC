@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Ebac.Singleton;
 
-    
+
 public enum ClothType
 {
     SPEED,
@@ -20,17 +20,16 @@ public class ClothManager : Singleton<ClothManager>
 
     public void InitCloth()
     {
-       _currentEquippedCloth = SaveManager.Instance.setup.id_cloth;
-       Debug.Log($"clothId: {_currentEquippedCloth}");
-       
-       if(_currentEquippedCloth == 0) return;
-       var cloth = GetSetupById(_currentEquippedCloth);
+        _currentEquippedCloth = SaveManager.Instance.setup.id_cloth;
+
+        if (_currentEquippedCloth == 0) return;
+        var cloth = GetSetupById(_currentEquippedCloth);
 
         ClothChangerV2.Instance.ChangeMaterials(cloth.material);
         cloth.Initialize(player, bulletsdamage);
 
     }
-    public ClothSetup GetSetupByType( ClothType clothType)
+    public ClothSetup GetSetupByType(ClothType clothType)
     {
         return clothSetups.Find(i => i.clothType == clothType);
     }
@@ -53,7 +52,7 @@ public class ClothSetup
 
     public void Initialize(Player player, SOInt damage = null)
     {
-        if(clothType == ClothType.SPEED)
+        if (clothType == ClothType.SPEED)
         {
             ChangePlayerSpeed(player);
         }
@@ -69,7 +68,7 @@ public class ClothSetup
 
     public void ChangePlayerDamageBullets(SOInt damage)
     {
-       damage.value = (int)force;
+        damage.value = (int)force;
     }
 
 

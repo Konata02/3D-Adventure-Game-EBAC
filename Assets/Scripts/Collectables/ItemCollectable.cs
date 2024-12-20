@@ -6,13 +6,16 @@ using Itens;
 public class ItemCollectable : CollectBase
 {
     public SOInt value;
+    public AudioSource sound;
 
     protected override void OnCollected()
     {
 
         if (CoinsManager.Instance != null)
         {
+            if (sound != null) AudioManager.Instance.SFXPlayByType(SFXType.TYPE_COIN, sound);
             CoinsManager.Instance.AddByTyoe(ItemType.COIN);
+            //sound.Play();
         }
         else
         {

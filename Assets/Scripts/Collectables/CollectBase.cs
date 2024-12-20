@@ -10,7 +10,7 @@ public class CollectBase : MonoBehaviour
     //[Header("Sounds")]
     //public AudioSource audioSource;
 
-  
+
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.transform.CompareTag(compareTag))
@@ -21,22 +21,23 @@ public class CollectBase : MonoBehaviour
 
     protected virtual void Collect()
     {
-        Debug.Log("Moeda Coletada");
+
         OnCollected();
         Invoke("DeactivateGameObject", 0.5f);
-        
-       
+
+
     }
 
     protected virtual void OnCollected()
     {
-        if(collectParticleSystem != null) { 
+        if (collectParticleSystem != null)
+        {
             collectParticleSystem.Play();
         }
         //if(audioSource != null){
         //    audioSource.Play();
         //}
-               
+
     }
 
     void DeactivateGameObject()
